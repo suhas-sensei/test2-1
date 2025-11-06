@@ -2,7 +2,6 @@ import { useState, Suspense, useEffect } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls, Environment, PerspectiveCamera } from '@react-three/drei'
-import { EffectComposer, SSAO, ToneMapping } from '@react-three/postprocessing'
 import { Model as Car1Model } from '../models/Car1'
 import { Model as Car2Model } from '../models/Car2'
 import { Model as Car3Model } from '../models/Car3'
@@ -36,7 +35,7 @@ const cars = [
     id: 2,
     Model: Car2Model,
     name: 'McLaren W1',
-    scale: 1.3,
+    scale: 0.1,
     position: [-5.4, -1, 0] as [number, number, number],
     rotation: [-0.11, - Math.PI /0.8, -0.1] as [number, number, number],
     shadowPosition: [-5.4, -1, 0] as [number, number, number],
@@ -221,22 +220,6 @@ function Garage() {
           <shadowMaterial opacity={0.5} color="#000000" transparent={true} />
         </mesh>
         <Environment preset="warehouse" environmentIntensity={0.3} />
-        <EffectComposer>
-          <SSAO
-            samples={16}
-            radius={0.5}
-            intensity={30}
-            luminanceInfluence={0.6}
-          />
-          <ToneMapping
-            adaptive={true}
-            resolution={256}
-            middleGrey={0.4}
-            maxLuminance={8.0}
-            averageLuminance={1.0}
-            adaptationRate={1.0}
-          />
-        </EffectComposer>
       </Canvas>
       <nav style={{
         position: 'absolute',
