@@ -74,7 +74,7 @@ const cars = [
   {
     id: 6,
     Model: Car6Model,
-    name: 'Car 6',
+    name: 'Lamborghini Aventador',
     scale: 1.1,
     position: [-5.5, -1.2, 0] as [number, number, number],
     rotation: [-0.15,  Math.PI / 4.5, 0.1] as [number, number, number],
@@ -1055,9 +1055,9 @@ function Garage() {
           position: 'absolute',
           bottom: '70px',
           right: '70px',
-          backgroundColor: currentCarIndex === 4 ? 'rgba(0, 0, 0, 0.5)' : 'rgba(100, 100, 100, 0.3)',
-          color: currentCarIndex === 4 ? '#ffffff' : '#666666',
-          border: 'none',
+          backgroundColor: currentCarIndex === 4 ? 'rgba(0, 0, 0, 0.5)' : 'rgba(60, 20, 20, 0.85)',
+          color: currentCarIndex === 4 ? '#ffffff' : '#ff6b6b',
+          border: currentCarIndex === 4 ? 'none' : '2px solid rgba(255, 107, 107, 0.6)',
           padding: '18px 36px',
           fontSize: '27px',
           fontWeight: 600,
@@ -1068,9 +1068,9 @@ function Garage() {
           textTransform: 'uppercase',
           backdropFilter: 'blur(10px)',
           WebkitBackdropFilter: 'blur(10px)',
-          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+          boxShadow: currentCarIndex === 4 ? '0 4px 6px rgba(0, 0, 0, 0.1)' : '0 4px 12px rgba(255, 107, 107, 0.3)',
           zIndex: 10,
-          opacity: currentCarIndex === 4 ? 1 : 0.5,
+          opacity: 1,
         }}
         onMouseEnter={(e) => {
           if (currentCarIndex === 4) {
